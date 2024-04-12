@@ -1,5 +1,11 @@
+import Movix from "./Movix";
+
 function App() {
-  return <div>App</div>;
+  return (
+    <>
+      <Movix />
+    </>
+  );
 }
 
 export default App;
