@@ -1,6 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 
-import Layout from "./components/Layout";
+import FetchMoviesContext from "./context/FetchMoviesContext";
+
+import Layout from "./hoc/Layout";
 import Home from "./pages/Home";
 
 import "/src/assets/css/bootstrap.min.css";
@@ -12,11 +14,13 @@ import "/src/assets/css/responsive.css";
 
 function Movix() {
   return (
-    <Layout>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </Layout>
+    <FetchMoviesContext>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </Layout>
+    </FetchMoviesContext>
   );
 }
 

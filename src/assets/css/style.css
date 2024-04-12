@@ -1136,7 +1136,6 @@ label {
   align-items: center;
   justify-content: flex-end;
   flex-wrap: wrap;
-  margin-right: 102px;
 }
 .movie-bg .tr-movie-menu-active {
   display: flex;
@@ -1271,6 +1270,7 @@ label {
   padding: 120px 0 90px;
   background-position: top center;
   background-size: cover;
+  background: url("../img/bg/ucm_bg02.jpg") no-repeat;
 }
 .title-style-three {
   position: relative;
@@ -1346,7 +1346,7 @@ label {
   flex-grow: 1;
   margin-right: 30px;
 }
-.movie-content-bottom ul li.tag a {
+.movie-content-bottom ul li.tag span {
   display: block;
   color: #4c5066;
   background: #02050a;
@@ -1356,7 +1356,7 @@ label {
   line-height: 1;
   margin-right: 10px;
 }
-.movie-content-bottom ul li.tag a:last-child {
+.movie-content-bottom ul li.tag span:last-child {
   margin-right: 0;
 }
 .movie-content-bottom ul li .like {

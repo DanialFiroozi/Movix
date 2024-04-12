@@ -1,5 +1,11 @@
+import UpComingMoviesSection from "../hoc/UpComingMoviesSection";
+
 function Home() {
-  return <div>Home</div>;
+  return (
+    <>
+      <UpComingMoviesSection />
+    </>
+  );
 }
 
 export default Home;
