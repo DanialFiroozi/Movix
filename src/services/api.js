@@ -25,6 +25,9 @@ const _fetchMoviesGenres = () => {
   return `${BASE_URL}/genre/movie/list?api_key=${API_KEY}`;
 };
 
+const _fetchTvGenres = () => {
+  return `${BASE_URL}/genre/tv/list?api_key=${API_KEY}`;
+};
 
 export {
   _fetchTopRatedMovies,
@@ -33,4 +36,5 @@ export {
   _fetchUpcomingMovies,
   _fetchPopularMovies,
   _fetchMoviesGenres,
+  _fetchTvGenres,
 };

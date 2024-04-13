@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import NavTabs from "../components/NavTabs";
 import SectionTitle from "../components/SectionTitle";
@@ -8,21 +8,12 @@ import { _fetchAllTrendingInWeek, _fetchMoviesGenres } from "../services/api";
 import { MoviesContext } from "../context/FetchMoviesContext";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
-
-import { TMDB_IMAGE_PREFIX } from "../utils/consonant";
+import { Autoplay } from "swiper/modules";
 
 import "swiper/css";
-import "swiper/css/pagination";
 
 function UpComingMoviesSection() {
   const { _allMovies, _allGenres } = useContext(MoviesContext);
-
-  const convertGenreIdToName = () => {};
-
-  //   const genreName = _allMovies
-  //     ?.map((item) => item.genre_ids.slice(0, 2))[15]
-  //     .map((g) => _allGenres[g]?.name);
 
   return (
     <section className="ucm-area ucm-bg2">
@@ -42,10 +33,9 @@ function UpComingMoviesSection() {
         <Swiper
           loop
           autoplay
-          modules={[Pagination, Autoplay]}
+          modules={[Autoplay]}
           spaceBetween={24}
           slidesPerView={4}
-          pagination={{ clickable: true }}
           breakpoints={{
             0: {
               slidesPerView: 1,
@@ -63,16 +53,14 @@ function UpComingMoviesSection() {
         >
           {_allMovies?.map((movie) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide key={movie.id}>
                 <MovieCard
-                  title={
-                    movie.name ||
-                    movie.title ||
-                    movie.original_title ||
-                    movie.original_name
-                  }
-                  imgUrl={`${TMDB_IMAGE_PREFIX}${movie.poster_path}`}
+                  title={movie.name || movie.title}
+                  imgUrl={movie.poster_path}
                   lang={movie.original_language}
+                  date={movie.release_date || movie.first_air_date}
+                  rating={movie.vote_average.toFixed(1)}
+                  genre={movie.genre_ids.slice(0, 2)}
                 />
               </SwiperSlide>
             );
