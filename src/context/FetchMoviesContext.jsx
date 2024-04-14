@@ -15,7 +15,7 @@ function FetchMoviesContext({ children }) {
   const fetchMoviesGenres = () => axios.get(_fetchMoviesGenres());
   const fetchTvGenres = () => axios.get(_fetchTvGenres());
 
-  const fetchedTrendMovies = useQuery({
+  const { data: fetchedTrendMovies, isLoading } = useQuery({
     queryKey: ["fetch_trend_movies"],
     queryFn: fetchAllMovies,
   });
@@ -30,7 +30,7 @@ function FetchMoviesContext({ children }) {
     queryFn: fetchTvGenres,
   });
 
-  const _allMovies = fetchedTrendMovies.data?.data.results;
+  const _allMovies = fetchedTrendMovies?.data.results;
   const concatGenres = moviesGenres.data?.data.genres.concat(
     tvGenres.data?.data.genres
   );
@@ -41,7 +41,7 @@ function FetchMoviesContext({ children }) {
   );
 
   return (
-    <MoviesContext.Provider value={{ _allMovies, _allGenres }}>
+    <MoviesContext.Provider value={{ _allMovies, _allGenres, isLoading }}>
       {children}
     </MoviesContext.Provider>
   );

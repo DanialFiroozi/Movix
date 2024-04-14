@@ -1,4 +1,4 @@
-import UpComingMoviesSection from "../hoc/UpComingMoviesSection";
+import UpComingMoviesSection from "../components/UpComingMoviesSection";
 
 function Home() {
   return (

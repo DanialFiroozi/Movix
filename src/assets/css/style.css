@@ -1269,7 +1269,7 @@ label {
 .ucm-bg2 {
   padding: 120px 0 90px;
   background-position: top center;
-  background-size: cover;
+  background-size: cover !important;
   background: url("../img/bg/ucm_bg02.jpg") no-repeat;
 }
 .title-style-three {
@@ -1346,17 +1346,17 @@ label {
   flex-grow: 1;
   margin-right: 30px;
 }
-.movie-content-bottom ul li.tag span {
+.movie-content-bottom ul li.tag span.tag-span {
   display: block;
   color: #4c5066;
-  background: #02050a;
+  background-color: #02050a;
   font-size: 12px;
   font-weight: 700;
   padding: 7px 12px;
   line-height: 1;
   margin-right: 10px;
 }
-.movie-content-bottom ul li.tag span:last-child {
+.movie-content-bottom ul li.tag span.tag-span:last-child {
   margin-right: 0;
 }
 .movie-content-bottom ul li .like {
@@ -2973,7 +2973,7 @@ label {
   min-height: 50px;
   width: 50px;
   height: 50px;
-  margin: 0 1rem 0;
+  margin-left: 1rem;
   position: relative;
 }
 
@@ -2994,5 +2994,5 @@ label {
 }
 
 .genres .genre:not(:last-of-type) {
-  margin: 0 4px 4px 0;
+  margin: 0 4px 0 0;
 }

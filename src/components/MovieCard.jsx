@@ -22,13 +22,11 @@ function MovieCard({ imgUrl, title, genre, lang, date, rating }) {
       );
   }, [_allGenres]);
 
-  console.log(movieGenre);
-
   return (
     <div className="movie-item movie-item-two mb-30">
       <div className="movie-poster">
         <Link to="/">
-          <img src={`${TMDB_IMAGE_PREFIX}${imgUrl}`} alt="" />
+          <img loading="lazy" src={`${TMDB_IMAGE_PREFIX}${imgUrl}`} alt="" />
         </Link>
       </div>
       <div className="movie-content">
@@ -36,7 +34,7 @@ function MovieCard({ imgUrl, title, genre, lang, date, rating }) {
           <h5 className="title text-left mb-0">
             <Link to="/"> {title} </Link>
 
-            <span className="rel genres d-flex justify-content-start align-items-center flex-wrap mt-3">
+            <span className="rel genres d-flex justify-content-start align-items-center flex-wrap mt-2">
               {movieGenre?.map((item, index) => (
                 <span key={index} className="genre bg-dark">
                   {" "}
@@ -59,8 +57,8 @@ function MovieCard({ imgUrl, title, genre, lang, date, rating }) {
         <div className="movie-content-bottom">
           <ul>
             <li className="tag">
-              <span>HD</span>
-              <span>{lang}</span>
+              <span className="tag-span">HD</span>
+              <span className="tag-span">{lang}</span>
             </li>
             <li>
               <span className="like">{dayjs(date).format("MMM D, YYYY")}</span>
