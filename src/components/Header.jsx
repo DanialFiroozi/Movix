@@ -87,9 +87,6 @@ function Header() {
                       <li>
                         <Link to="/">Pricing</Link>
                       </li>
-                      <li className="menu-item-has-children">
-                        <Link to="/">blog</Link>
-                      </li>
                       <li>
                         <Link to="/">contacts</Link>
                       </li>
@@ -151,11 +148,6 @@ function Header() {
                       <li>
                         <Link to="/" className="nav-link">
                           Pricing
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/" className="nav-link">
-                          Blog
                         </Link>
                       </li>
                       <li>

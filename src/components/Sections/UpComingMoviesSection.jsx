@@ -1,19 +1,33 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 
-import NavTabs from "../components/NavTabs";
-import SectionTitle from "../components/SectionTitle";
-import MovieCard from "../components/MovieCard";
+import NavTabs from "../NavTabs";
+import SectionTitle from "../SectionTitle";
+import MovieCard from "../MovieCard";
 
-import { _fetchAllTrendingInWeek, _fetchMoviesGenres } from "../services/api";
-import { MoviesContext } from "../context/FetchMoviesContext";
+import {
+  _fetchAllTrendingInWeek,
+  _fetchMoviesGenres,
+} from "../../services/api";
+import { MoviesContext } from "../../context/FetchMoviesContext";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
 import "swiper/css";
+import MovieCardSkeletonLoading from "../SkeletonLoading/MovieCardSkeletonLoading";
 
 function UpComingMoviesSection() {
-  const { _allMovies, _allGenres } = useContext(MoviesContext);
+  const { _allTrendMovies, trendMoviesIsLoading } = useContext(MoviesContext);
+
+  let showSkeletonLoading = [];
+
+  for (let i = 1; i <= 4; i++) {
+    showSkeletonLoading.push(
+      <div className="col-12 col-md-6 col-lg-4 col-xl-3">
+        <MovieCardSkeletonLoading />
+      </div>
+    );
+  }
 
   return (
     <section className="ucm-area ucm-bg2">
@@ -23,6 +37,7 @@ function UpComingMoviesSection() {
             <SectionTitle
               subTitle="ONLINE STREAMING"
               title="New Release Movies"
+              additionalClass="text-lg-left"
             />
           </div>
           <div className="col-lg-6">
@@ -30,11 +45,13 @@ function UpComingMoviesSection() {
           </div>
         </div>
 
+        <div className="row">{trendMoviesIsLoading && showSkeletonLoading}</div>
+
         <Swiper
           loop
           autoplay
           modules={[Autoplay]}
-          spaceBetween={24}
+          spaceBetween={32}
           slidesPerView={4}
           breakpoints={{
             0: {
@@ -51,7 +68,7 @@ function UpComingMoviesSection() {
             },
           }}
         >
-          {_allMovies?.map((movie) => {
+          {_allTrendMovies?.map((movie) => {
             return (
               <SwiperSlide key={movie.id}>
                 <MovieCard

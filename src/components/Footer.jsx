@@ -31,9 +31,6 @@ function Footer() {
                         <Link to="/">tv show</Link>
                       </li>
                       <li>
-                        <Link to="/">Blog</Link>
-                      </li>
-                      <li>
                         <Link to="/">Pricing</Link>
                       </li>
                     </ul>
@@ -107,7 +104,7 @@ function Footer() {
               <div className="copyright-text">
                 <p>
                   Copyright &copy; 2021. All Rights Reserved By{" "}
-                  <a href="index.html">Movflx</a>
+                  <Link to="index.html">Movflx</Link>
                 </p>
               </div>
             </div>
