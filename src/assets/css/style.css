@@ -1051,8 +1051,9 @@ label {
 }
 .slider-bg {
   background-position: top center;
-  background-size: cover;
+  background-size: cover !important;
   padding: 135px 0 120px;
+  background: url("../img/banner/s_slider_bg.jpg") no-repeat;
 }
 .slider-img > img {
   display: inline-block;
@@ -1511,8 +1512,9 @@ label {
 }
 .tr-movie-bg2 {
   background-position: top center;
-  background-size: cover;
+  background-size: cover !important;
   padding: 120px 0 120px;
+  background: url("../img/bg/tr_movies_bg.jpg") no-repeat;
 }
 .tr-movie-menu-active {
   display: flex;
@@ -1590,8 +1592,14 @@ label {
   background: #14141d;
   border: 1px solid #2d292a;
 }
+
+.overlay-btn {
+  display: none;
+}
+
 .movie-item-row .movie-poster .overlay-btn,
 .movie-item-three .movie-poster .overlay-btn {
+  display: inline-block;
   position: absolute;
   left: 0;
   right: 0;
@@ -1752,8 +1760,9 @@ label {
 /* 12. Live-show */
 .live-bg {
   background-position: left center;
-  background-size: cover;
+  background-size: cover !important;
   padding: 120px 0 120px;
+  background: url(../img/bg/live_bg.jpg) no-repeat;
 }
 .live-bg .title-style-two .sub-title {
   color: #656363;
@@ -2088,6 +2097,7 @@ label {
   background-position: top center;
   background-size: cover;
   padding: 120px 0 90px;
+  background: url("../img/bg/pricing_bg.jpg");
 }
 .pricing-box-wrap {
   padding: 0 80px;
@@ -2103,6 +2113,9 @@ label {
 .pricing-box-item:hover {
   border-radius: 4px;
   border-color: #e4d804;
+}
+.pricing-box-item.active {
+  transform: translateY(-16px);
 }
 .pricing-top {
   text-align: center;

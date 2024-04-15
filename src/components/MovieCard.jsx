@@ -26,7 +26,22 @@ function MovieCard({ imgUrl, title, genre, lang, date, rating }) {
     <div className="movie-item movie-item-two mb-30">
       <div className="movie-poster">
         <Link to="/">
-          <img loading="lazy" src={`${TMDB_IMAGE_PREFIX}${imgUrl}`} alt="" />
+          <img src={`${TMDB_IMAGE_PREFIX}${imgUrl}`} loading="lazy" alt="" />
+          <ul className="overlay-btn">
+            <li>
+              <Link
+                to="https://www.youtube.com/watch?v=R2gbPxeNk2E"
+                className="popup-video btn"
+              >
+                Watch Now
+              </Link>
+            </li>
+            <li>
+              <Link to="/" className="btn">
+                Details
+              </Link>
+            </li>
+          </ul>
         </Link>
       </div>
       <div className="movie-content">
