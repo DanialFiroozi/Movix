@@ -3,7 +3,9 @@ import { Routes, Route } from "react-router-dom";
 import FetchMoviesContext from "./context/FetchMoviesContext";
 
 import Layout from "./hoc/Layout";
-import Home from "./pages/Home";
+import HomePage from "./pages/HomePage";
+import PricingPage from "./pages/PricingPage";
+import ContactsPage from "./pages/ContactsPage";
 
 import "/src/assets/css/bootstrap.min.css";
 import "/src/assets/css/fontawesome-all.min.css";
@@ -17,7 +19,9 @@ function Movix() {
     <FetchMoviesContext>
       <Layout>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/pricing" element={<PricingPage />} />
+          <Route path="/contacts" element={<ContactsPage />} />
         </Routes>
       </Layout>
     </FetchMoviesContext>

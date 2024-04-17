@@ -1,6 +1,6 @@
 import React from "react";
-import SectionTitle from "../SectionTitle";
-import Pricing from "../Pricing";
+import SectionTitle from "../../SectionTitle";
+import Pricing from "../../Pricing";
 
 function PricingSection() {
   return (

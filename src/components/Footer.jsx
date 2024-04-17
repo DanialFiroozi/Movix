@@ -31,7 +31,7 @@ function Footer() {
                         <Link to="/">tv show</Link>
                       </li>
                       <li>
-                        <Link to="/">Pricing</Link>
+                        <Link to="/pricing">Pricing</Link>
                       </li>
                     </ul>
                     <div className="footer-search">
