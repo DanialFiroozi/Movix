@@ -1,14 +1,25 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 
 import logo from "/src/assets/img/logo/logo.png";
 
 function Header() {
   const [showMenu, setShowMenu] = useState("");
+  const { pathname } = useLocation();
+
+  const isHomePage = pathname === "/";
+  const transparentHeader = pathname !== "/" && "transparent-header";
+
+  const navItems = [
+    { link: "/", title: "home" },
+    { link: "/movies", title: "movie" },
+    { link: "/pricing", title: "pricing" },
+    { link: "/contacts", title: "contacts" },
+  ];
 
   return (
     <header className="header-style-two">
-      <div className="header-top-wrap">
+      <div className={`header-top-wrap ${!isHomePage && "d-none"}`}>
         <div className="container custom-container">
           <div className="row align-items-center">
             <div className="col-md-6 d-none d-md-block">
@@ -56,7 +67,7 @@ function Header() {
         </div>
       </div>
 
-      <div id="sticky-header" className="menu-area">
+      <div id="sticky-header" className={`menu-area ${transparentHeader}`}>
         <div className="container custom-container">
           <div className="row">
             <div className="col-12">
@@ -75,21 +86,16 @@ function Header() {
                   </div>
                   <div className="navbar-wrap main-menu d-none d-lg-flex">
                     <ul className="navigation">
-                      <li className="active menu-item-has-children">
-                        <Link to="/">Home</Link>
-                      </li>
-                      <li className="menu-item-has-children">
-                        <Link to="/">Movie</Link>
-                      </li>
-                      <li>
-                        <Link to="/">tv show</Link>
-                      </li>
-                      <li>
-                        <Link to="/">Pricing</Link>
-                      </li>
-                      <li>
-                        <Link to="/">contacts</Link>
-                      </li>
+                      {navItems.map((item, index) => {
+                        return (
+                          <li
+                            className={`${pathname === item.link && "active"}`}
+                            key={index}
+                          >
+                            <Link to={item.link}>{item.title}</Link>
+                          </li>
+                        );
+                      })}
                     </ul>
                   </div>
                   <div className="header-action d-none d-md-block">
@@ -130,31 +136,18 @@ function Header() {
                   </div>
                   <div className="menu-outer">
                     <ul id="menu-main-menu" className="navigation">
-                      <li>
-                        <Link to="/" className="nav-link">
-                          Home
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="" className="nav-link">
-                          Movie
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/" className="nav-link">
-                          Tv Show
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/" className="nav-link">
-                          Pricing
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/" className="nav-link">
-                          Contact
-                        </Link>
-                      </li>
+                      {navItems.map((item, index) => {
+                        return (
+                          <li
+                            className={`${pathname === item.link && "active"}`}
+                            key={index}
+                          >
+                            <Link to={item.link} className="navLink">
+                              {item.title}
+                            </Link>
+                          </li>
+                        );
+                      })}
                     </ul>
                   </div>
                   <div className="social-links">

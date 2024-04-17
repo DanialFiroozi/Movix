@@ -1,20 +1,20 @@
 import { useContext, useState } from "react";
 
-import NavTabs from "../NavTabs";
-import SectionTitle from "../SectionTitle";
-import MovieCard from "../MovieCard";
+import NavTabs from "../../NavTabs";
+import SectionTitle from "../../SectionTitle";
+import MovieCard from "../../MovieCard";
 
 import {
   _fetchAllTrendingInWeek,
   _fetchMoviesGenres,
-} from "../../services/api";
-import { MoviesContext } from "../../context/FetchMoviesContext";
+} from "../../../services/api";
+import { MoviesContext } from "../../../context/FetchMoviesContext";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
 import "swiper/css";
-import MovieCardSkeletonLoading from "../SkeletonLoading/MovieCardSkeletonLoading";
+import MovieCardSkeletonLoading from "../../SkeletonLoading/MovieCardSkeletonLoading";
 
 function UpComingMoviesSection() {
   const { _allTrendMovies, trendMoviesIsLoading } = useContext(MoviesContext);
@@ -23,7 +23,7 @@ function UpComingMoviesSection() {
 
   for (let i = 1; i <= 4; i++) {
     showSkeletonLoading.push(
-      <div className="col-12 col-md-6 col-lg-4 col-xl-3">
+      <div className="col-12 col-md-6 col-lg-4 col-xl-3" key={i}>  
         <MovieCardSkeletonLoading />
       </div>
     );

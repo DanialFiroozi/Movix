@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import SectionTitle from "../SectionTitle";
+import SectionTitle from "../../SectionTitle";
 
 import { Link } from "react-router-dom";
-import { MoviesContext } from "../../context/FetchMoviesContext";
-import MovieCard from "../MovieCard";
-import MovieCardSkeletonLoading from "../SkeletonLoading/MovieCardSkeletonLoading";
+import { MoviesContext } from "../../../context/FetchMoviesContext";
+import MovieCard from "../../MovieCard";
+import MovieCardSkeletonLoading from "../../SkeletonLoading/MovieCardSkeletonLoading";
 
 function TvSeriesSection() {
   const { _allTvSeries, tvSeriesIsLoading } = useContext(MoviesContext);
@@ -13,7 +13,7 @@ function TvSeriesSection() {
 
   for (let i = 1; i <= 20; i++) {
     showSkeletonLoading.push(
-      <div className="col-12 col-md-6 col-lg-4 col-xl-3">
+      <div className="col-12 col-md-6 col-lg-4 col-xl-3" key={i}>
         <MovieCardSkeletonLoading />
       </div>
     );
