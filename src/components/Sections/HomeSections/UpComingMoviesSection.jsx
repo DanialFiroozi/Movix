@@ -4,16 +4,12 @@ import NavTabs from "../../NavTabs";
 import SectionTitle from "../../SectionTitle";
 import MovieCard from "../../MovieCard";
 
-import {
-  _fetchAllTrendingInWeek,
-  _fetchMoviesGenres,
-} from "../../../services/api";
 import { MoviesContext } from "../../../context/FetchMoviesContext";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-
 import "swiper/css";
+
 import MovieCardSkeletonLoading from "../../SkeletonLoading/MovieCardSkeletonLoading";
 
 function UpComingMoviesSection() {
@@ -32,7 +28,7 @@ function UpComingMoviesSection() {
   return (
     <section className="ucm-area ucm-bg2">
       <div className="container">
-        <div className="row align-items-end mb-55">
+        <div className="row align-items-center mb-55">
           <div className="col-lg-6">
             <SectionTitle
               subTitle="ONLINE STREAMING"

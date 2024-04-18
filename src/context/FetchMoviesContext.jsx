@@ -1,11 +1,11 @@
 import React, { createContext } from "react";
+
 import axios from "axios";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useInfiniteQuery } from "@tanstack/react-query";
 
 import {
-  _fetchAllTrendingInWeek,
+  _fetchAllTrendingMovies,
   _fetchMoviesGenres,
-  _fetchPopularMovies,
   _fetchTvGenres,
   _fetchTvSeries,
 } from "../services/api";
@@ -13,7 +13,7 @@ import {
 export const MoviesContext = createContext();
 
 function FetchMoviesContext({ children }) {
-  const fetchAllTrendMovies = () => axios.get(_fetchAllTrendingInWeek());
+  const fetchAllTrendMovies = () => axios.get(_fetchAllTrendingMovies());
   const fetchTvSeries = () => axios.get(_fetchTvSeries());
   const fetchMoviesGenres = () => axios.get(_fetchMoviesGenres());
   const fetchTvGenres = () => axios.get(_fetchTvGenres());
@@ -55,9 +55,9 @@ function FetchMoviesContext({ children }) {
       value={{
         _allTrendMovies,
         _allGenres,
+        _allTvSeries,
         trendMoviesIsLoading,
         tvSeriesIsLoading,
-        _allTvSeries,
       }}
     >
       {children}

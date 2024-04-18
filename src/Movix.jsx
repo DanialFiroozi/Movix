@@ -6,6 +6,7 @@ import Layout from "./hoc/Layout";
 import HomePage from "./pages/HomePage";
 import PricingPage from "./pages/PricingPage";
 import ContactsPage from "./pages/ContactsPage";
+import MoviesPage from "./pages/MoviesPage";
 
 import "/src/assets/css/bootstrap.min.css";
 import "/src/assets/css/fontawesome-all.min.css";
@@ -22,6 +23,7 @@ function Movix() {
           <Route path="/" element={<HomePage />} />
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/contacts" element={<ContactsPage />} />
+          <Route path="/movies" element={<MoviesPage />} />
         </Routes>
       </Layout>
     </FetchMoviesContext>
