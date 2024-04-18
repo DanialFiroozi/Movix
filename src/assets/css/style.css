@@ -1377,8 +1377,9 @@ label {
 }
 .movie-bg {
   background-position: top center;
-  background-size: cover;
+  background-size: cover !important;
   padding: 120px 0 120px;
+  background: url("../img/bg/movie_bg.jpg") no-repeat;
 }
 
 /* 8. Services */
