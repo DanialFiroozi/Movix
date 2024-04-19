@@ -1,7 +1,7 @@
 import React, { createContext } from "react";
 
 import axios from "axios";
-import { useQuery, useInfiniteQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 
 import {
   _fetchAllTrendingMovies,

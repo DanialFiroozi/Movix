@@ -51,7 +51,7 @@ function TvSeriesSection() {
           })}
         </div>
         <div className="tr-movie-btn text-center mt-25">
-          <Link to="/" className="btn">
+          <Link to="/movies" className="btn">
             BROWSE ALL MOVIES
           </Link>
         </div>
